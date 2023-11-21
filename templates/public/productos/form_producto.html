@@ -1,0 +1,98 @@
+{% extends 'public/base_cpanel.html' %}
+<!--Cambiando el title-->
+{% block title %} Registrar Producto{% endblock %}
+<!---->
+{% block customCSS %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename ='assets/css/file.css') }}" />
+{% endblock %}
+
+<!--Inicio del block-->
+{% block body %}
+<div class="card" style="border-radius: 0px !important">
+  <div class="row justify-content-center mb-2">
+    <div class="col-md-12">
+      <h3 class="text-center mt-5 mb-3">REGISTRAR NUEVO PRODUCTO</h3>
+      <hr />
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-2">
+    <div class="col-md-10">
+      <form
+        class="form-horizontal mx-auto"
+        method="POST"
+        action="/form-registrar-producto"
+        autocomplete="off"
+        enctype="multipart/form-data">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="nombre_producto" class="form-label">
+                Nombre del Producto
+              </label>
+              <input
+                type="text"
+                name="nombre_producto"
+                class="form-control"
+                required />
+            </div>
+            <div class="col-md-6">
+              <label for="descripcion_producto" class="form-label">
+                Descripción del Producto
+              </label>
+              <input
+                class="form-control"
+                type="text"
+                name="descripcion_producto"
+                required />
+            </div>
+            <div class="col-md-6">
+              <label for="cantidad_producto" class="form-label">
+                Cantidad de Producto
+              </label>
+              <input
+                class="form-control"
+                type="text"
+                name="cantidad_producto"
+                required />
+            </div>
+            <div class="col-md-6">
+              <label for="precio_producto" class="form-label">
+                Precio del Producto
+              </label>
+              <input
+                class="form-control"
+                type="text"
+                name="precio_producto"
+                required />
+              </div>
+            <div class="col-md-6">
+              <label for="categoria_producto" class="form-label">
+                Categoria del Producto
+                </label>
+                <select
+                  class="form-select"
+                  name="categoria_producto"
+                  aria-label="Default select example">
+                  <option selected>Seleccione</option>
+                  <option value="1">Alimentos</option>
+                  <option value="2">Higiene y salud</option>
+                </select>
+              </div>
+
+          <div class="mb-3 mt-4 text-center">
+            <button type="submit" class="btn rounded-pill btn-primary">
+              Guardar registro ahora
+              <i class="bi bi-arrow-clockwise"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block customJS %}
+<script src="{{ url_for('static', filename ='assets/customJS/file.js') }}"></script>
+{% endblock %}

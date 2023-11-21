@@ -1,0 +1,115 @@
+{% extends 'public/base_cpanel.html' %}
+<!--Cambiando el title-->
+{% block title %}Registrar Nuevo Proveedor{% endblock %}
+<!---->
+{% block customCSS %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename ='assets/css/file.css') }}" />
+{% endblock %}
+
+<!--Inicio del block-->
+{% block body %}
+<div class="card" style="border-radius: 0px !important">
+  {% if respuestaProveedor|length %}
+  <div class="row justify-content-center mb-2">
+    <div class="col-md-12">
+      <h3 class="text-center mt-5 mb-3">
+        <a href="/lista-de-proveedores">
+          <i class="bi bi-arrow-left-circle"></i>
+        </a>
+        ACTUALIZAR DATOS DEL PROVEEDOR
+      </h3>
+      <hr />
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-2">
+    <div class="col-md-10">
+      <form
+        class="form-horizontal mx-auto"
+        method="POST"
+        action="{{ url_for('actualizarProveedor', id = respuestaProveedor.id_proveedor ) }}"
+        autocomplete="off"
+        enctype="multipart/form-data">
+        <input
+          type="text"
+          class="form-control"
+          name="id_proveedor"
+          value="{{ respuestaProveedor.id_proveedor }}"
+          required
+          hidden />
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="nombre_proveedor" class="form-label">
+                Nombre del proveedor
+              </label>
+              <input
+                type="text"
+                name="nombre_proveedor"
+                value="{{ respuestaProveedor.nombre_proveedor }}"
+                class="form-control"
+                required />
+            </div>
+            <div class="col-md-6">
+              <label for="nit_proveedor" class="form-label">
+                Nit del proveedor
+              </label>
+              <input
+                class="form-control"
+                type="text"
+                name="nit_proveedor"
+                value="{{ respuestaProveedor.nit_proveedor }}"
+                required />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <label for="direccion_proveedor" class="form-label">
+                Dirección del Proveedor
+              </label>
+              <input
+                class="form-control"
+                type="text"
+                name="direccion_proveedor"
+                value="{{ respuestaProveedor.direccion_proveedor }}"
+                required />
+            </div>
+            <div class="col-md-6">
+              <label for="telefono_proveedor" class="form-label">
+                Telefono del Proveedor
+              </label>
+              <input
+                class="form-control"
+                type="text"
+                name="telefono_proveedor"
+                value="{{ respuestaProveedor.telefono_proveedor }}"
+                required />
+            </div>
+          </div>
+
+          <div class="mb-3 mt-4 text-center">
+            <button type="submit" class="btn rounded-pill btn-primary">
+              Guardar registro ahora
+              <i class="bi bi-arrow-clockwise"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  {% else %}
+  <div class="row justify-content-center mb-2">
+    <div class="col-md-12">
+      <h3 class="text-center">No existe el proveedor</h3>
+    </div>
+  </div>
+
+  {% endif %}
+</div>
+{% endblock %} {% block customJS %}
+<script src="{{ url_for('static', filename ='assets/customJS/file.js') }}"></script>
+{% endblock %}

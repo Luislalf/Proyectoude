@@ -1,0 +1,130 @@
+{% extends 'public/base_cpanel.html' %}
+<!--Cambiando el title-->
+{% block title %}Registrar Nuevo Producto{% endblock %}
+<!---->
+{% block customCSS %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename ='assets/css/file.css') }}" />
+{% endblock %}
+
+<!--Inicio del block-->
+{% block body %}
+<div class="card" style="border-radius: 0px !important">
+  {% if respuestaProducto|length %}
+  <div class="row justify-content-center mb-2">
+    <div class="col-md-12">
+      <h3 class="text-center mt-5 mb-3">
+        <a href="/lista-de-productos">
+          <i class="bi bi-arrow-left-circle"></i>
+        </a>
+        ACTUALIZAR DATOS DEL PRODUCTO
+      </h3>
+      <hr />
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-2">
+    <div class="col-md-10">
+      <form
+        class="form-horizontal mx-auto"
+        method="POST"
+        action="{{ url_for('actualizarProducto', id = respuestaProducto.id_producto ) }}"
+        autocomplete="off"
+        enctype="multipart/form-data">
+        <input
+          type="text"
+          class="form-control"
+          name="id_producto"
+          value="{{ respuestaProducto.id_producto }}"
+          required
+          hidden />
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="nombre_producto" class="form-label">
+                Nombre del Producto
+              </label>
+              <input
+                type="text"
+                name="nombre_producto"
+                value="{{ respuestaProducto.nombre_producto }}"
+                class="form-control"
+                required />
+            </div>
+            <div class="col-md-6">
+              <label for="descripcion_producto" class="form-label">
+                Descripción del Producto
+              </label>
+              <input
+                class="form-control"
+                type="text"
+                name="descripcion_producto"
+                value="{{ respuestaProducto.descripcion_producto }}"
+                required />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <label for="cantidad_producto" class="form-label">
+                Cantidad del Producto
+              </label>
+              <input
+                class="form-control"
+                type="text"
+                name="cantidad_producto"
+                value="{{ respuestaProducto.cantidad_producto }}"
+                required />
+            </div>
+            <div class="col-md-6">
+              <label for="precio_producto" class="form-label">
+                Precio del Producto
+              </label>
+              <input
+                class="form-control"
+                type="text"
+                name="precio_producto"
+                value="{{ respuestaProducto.precio_producto }}"
+                required />
+            </div>
+            <div class="col-md-6">
+              <label for="categoria_producto" class="form-label">
+                Categoria del Producto
+              </label>
+              {% with tipo_categoria = {"1": "Alimentos", "2": "Higiene y salud"} %}
+              <select class="form-select" name="categoria_producto">
+                {% for clave, valor in tipo_categoria.items() %} {% if clave ==
+                respuestaProducto.categoria_producto|string %}
+                <option value="{{ clave }}" selected>{{ valor }}</option>
+                {% else %}
+                <option value="{{ clave }}">{{ valor }}</option>
+                {% endif %} {% endfor %}
+              </select>
+              {% endwith %}
+            </div>
+          </div>
+
+          <div class="mb-3 mt-4 text-center">
+            <button type="submit" class="btn rounded-pill btn-primary">
+              Guardar registro ahora
+              <i class="bi bi-arrow-clockwise"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  {% else %}
+  <div class="row justify-content-center mb-2">
+    <div class="col-md-12">
+      <h3 class="text-center">No existe el producto</h3>
+    </div>
+  </div>
+
+  {% endif %}
+</div>
+{% endblock %} {% block customJS %}
+<script src="{{ url_for('static', filename ='assets/customJS/file.js') }}"></script>
+{% endblock %}

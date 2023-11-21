@@ -1,0 +1,45 @@
+{% for producto in dataBusqueda %}
+<tr id="producto_{{ producto.id_producto }}">
+  <td>{{ loop.index }}</td>
+  <td>{{ producto.nombre_producto }}</td>
+  <td>{{ producto.descripcion_producto }}</td>
+  <td>{{ producto.cantidad_producto }}</td>
+  <td>{{ producto.precio_producto }}</td>
+  <td>{{ producto.categoria_producto }}</td>
+  <td>
+    <a
+      href="/detalles-producto/{{ producto.id_producto }}"
+      title="Ver envio"
+      type="button"
+      class="btn btn-info btn-sm"
+      data-bs-toggle="tooltip"
+      data-bs-offset="0,4"
+      data-bs-placement="top"
+      data-bs-html="true"
+      title="<span>Ver detalles</span>">
+      <i class="bi bi-eye"></i>
+      Ver detalles
+    </a>
+    <a
+      href="{{ url_for('viewEditarProducto', id = producto.id_producto) }}"
+      class="btn btn-success btn-sm"
+      tooltip="Actualizar Registro">
+      <i class="bi bi-arrow-clockwise"></i>
+      Actualizar
+    </a>
+    <a
+      href="#"
+      onclick="eliminarProducto('{{ producto.id_producto }}');"
+      class="btn btn-danger btn-sm"
+      data-bs-toggle="tooltip"
+      data-bs-offset="0,4"
+      data-bs-placement="top"
+      data-bs-html="true"
+      title="<span>Eliminar producto {{ producto.nombre_producto }}</span>">
+      <i class="bi bi-trash3"></i>
+      Eliminar
+    </a>
+  </td>
+</tr>
+
+{% endfor %}

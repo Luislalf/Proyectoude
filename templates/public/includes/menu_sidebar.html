@@ -1,0 +1,119 @@
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+
+  <div class="menu-inner-shadow"></div>
+  <ul class="menu-inner py-5">
+    <li
+      class="menu-item {% if request.path == '/registrar-cliente' %} active {% endif %}">
+      <a href="{{ url_for('viewFormCliente') }}" class="menu-link">
+        <i class="menu-icon bi bi-person-vcard-fill"></i>
+        <div data-i18n="Basic">Registrar Cliente</div>
+      </a>
+    </li>
+    <li
+      class="menu-item {% if request.path == '/lista-de-clientes' %} active{% endif %}">
+      <a href="/lista-de-clientes" class="menu-link">
+        <i class="menu-icon bi bi-people-fill"></i>
+        <div data-i18n="Boxicons">Lista de Clientes</div>
+      </a>
+    </li>
+    <li
+      class="menu-item {% if request.path == '/registrar-proveedor' %} active {% endif %}">
+      <a href="{{ url_for('viewFormProveedor') }}" class="menu-link">
+        <i class="menu-icon bi bi-train-lightrail-front"></i>
+        <div data-i18n="Basic">Registrar Proveedor</div>
+      </a>
+    </li>
+    <li
+      class="menu-item {% if request.path == '/lista-de-proveedores' %} active{% endif %}">
+      <a href="/lista-de-proveedores" class="menu-link">
+        <i class="menu-icon bi bi-truck"></i>
+        <div data-i18n="Boxicons">Lista de Proveedores</div>
+      </a>
+    </li>
+    <li
+      class="menu-item {% if request.path == '/registrar-empleado' %} active {% endif %}">
+      <a href="{{ url_for('viewFormEmpleado') }}" class="menu-link">
+        <i class="menu-icon bi bi-person-bounding-box"></i>
+        <div data-i18n="Basic">Registrar Empleado</div>
+      </a>
+    </li>
+    <li
+      class="menu-item {% if request.path == '/lista-de-empleados' %} active{% endif %}">
+      <a href="/lista-de-empleados" class="menu-link">
+        <i class="menu-icon bi bi-person-lines-fill"></i>
+        <div data-i18n="Boxicons">Lista de Empleados</div>
+      </a>
+    </li>
+    <li
+    class="menu-item {% if request.path == '/registrar-producto' %} active {% endif %}">
+    <a href="{{ url_for('viewFormProducto') }}" class="menu-link">
+      <i class="bi bi-box-seam"> </i>
+      <div data-i18n="Basic"> Registrar Producto</div>
+    </a>
+  </li>
+  <li
+    class="menu-item {% if request.path == '/lista-de-productos' %} active{% endif %}">
+    <a href="/lista-de-productos" class="menu-link">
+      <i class="bi bi-bar-chart-steps"> </i>
+      <div data-i18n="Boxicons"> Lista de Productos</div>
+    </a>
+  </li>
+  <li
+  class="menu-item {% if request.path == '/registrar-producto' %} active {% endif %}">
+  <a href="{{ url_for('viewFormProducto') }}" class="menu-link">
+    <i class="bi bi-cart4"> </i>
+    <div data-i18n="Basic"> Registrar Venta</div>
+  </a>
+</li>
+<li
+  class="menu-item {% if request.path == '/lista-de-productos' %} active{% endif %}">
+  <a href="/lista-de-productos" class="menu-link">
+    <i class="bi bi-cart-dash-fill"> </i>
+    <div data-i18n="Boxicons"> Lista de Ventas</div>
+  </a>
+</li>
+<li
+
+  class="menu-item {% if request.path == '/registrar-producto' %} active {% endif %}">
+  <a href="{{ url_for('viewFormProducto') }}" class="menu-link">
+    <i class="bi bi-cart-plus"> </i>
+    <div data-i18n="Basic"> Registrar Compra</div>
+  </a>
+</li>
+<li
+  class="menu-item {% if request.path == '/lista-de-productos' %} active{% endif %}">
+  <a href="/lista-de-productos" class="menu-link">
+    <i class="bi bi-cart-fill"> </i>
+    <div data-i18n="Boxicons"> Lista de Compras</div>
+  </a>
+</li>
+<li
+
+  class="menu-item {% if request.path == '/descargar-informe-empleados' %} active {% endif %}">
+      <a href="/descargar-informe-empleados" class="menu-link">
+        <i class="menu-icon bi bi-file-earmark-spreadsheet-fill"></i>
+        <div data-i18n="Tables">Reportes</div>
+      </a>
+    </li>
+    <li
+      class="menu-item {% if request.path == '/lista-de-usuarios' %} active {% endif %}">
+      <a href="/lista-de-usuarios" class="menu-link">
+        <i class="menu-icon bi bi-person-lines-fill"></i>
+        <div data-i18n="Tables">Lista de Usuarios</div>
+      </a>
+    </li>
+    <li
+      class="menu-item {% if request.path == '/mi-perfil' %} active {% endif %}">
+      <a href="/mi-perfil" class="menu-link">
+        <i class="menu-icon bi bi-person-fill-gear"></i>
+        <div data-i18n="Tables">Mi Perfil</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="{{ url_for('cerraSesion') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+        <div data-i18n="Tables">Salir</div>
+      </a>
+    </li>
+  </ul>
+</aside>
